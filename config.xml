@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.handloan.handloan" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Handloan</name>
+    <description>
+        Handloan
+    </description>
+    <author email="sanarajasekhar@gmail.com" href="http://mukthasis.com">
+        Handloan Pvt Ltd.,
+    </author>
+    <platform name="android">
+    <icon src="resources/ldpi.png" density="ldpi" />
+    <icon src="resources/mdpi" density="mdpi" />
+    <icon src="resources/hdpi.png" density="hdpi" />
+    <icon src="resources/xhdpi.png" density="xhdpi" />
+    </platform>
+    <content src="index.html" />
+    <plugin name="cordova-plugin-splashscreen" spec="4.0.2" />
+    <plugin name="cordova-plugin-whitelist" spec="1.3.2" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+</widget>

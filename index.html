@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Login Form</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="description" content="">
+    <meta name="author" content="UI Designs by Raja Sekhar">
+    <link type="text/css" href="myassets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" href="myassets/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="myassets/css/animate.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
+    <!--[if lt IE 9]>
+        <link type="text/css" href="myassets/css/ie8.css" rel="stylesheet">
+        <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- The following CSS are included as plugins and can be removed if unused-->
+
+    </head>
+
+    <body class="focused-form" id="bgnew">
+<br><br>
+<div class="container" id="login-form">
+	<a href="#" class="login-logo animated bounce"><img src="myassets/img/login-logo.png" width="30%"></a>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<div class="panel panel-info animated rollIn">
+				<div class="panel-heading"><h2><i class="fa fa-user"></i> HANDLOAN LOGIN</h2></div>
+				<div class="panel-body">
+
+					<form class="form-horizontal" id="login">
+						<div class="form-group">
+	                        <div class="col-xs-12">
+	                        	<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-phone"></i>
+									</span>
+<input type="number" min="0" class="form-control" name="mobile" placeholder="Mobile Number" data-parsley-minlength="6" required>
+								</div>
+	                        </div>
+						</div>
+
+						<div class="panel-footer">
+							<div class="clearfix">
+<input type="submit" name="submit" value="LOGIN" class="btn btn-info btn-lg pull-right"/>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+<div class="row">
+        <div class="col-md-12"><br>
+<center><img src="myassets/img/preloader.gif" width="65" height="65" alt="" style="display:none" id="loader"></center>
+<div class="alert alert-danger" style="display:none" id="wmsg">
+  <strong>Sorry !</strong>Wrong username / password.
+</div>
+        </div>
+</div>
+
+	</div>
+
+<div id="connection" class="modal fade" role="dialog">
+  <div class="modal-dialog" style="padding-top:50%">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+<center><img src="images/connection.png" alt="" width="30%"></center>
+<b><center><span style="color: #FF5C5C">Check Internet Connection !</span></center></b><br>
+<center><a href="javascript:location.reload();" class="btn btn-primary">RETRY</a></center>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<script type="text/javascript" src="myassets/js/jquery-1.10.2.min.js"></script> 							<!-- Load jQuery -->
+<script type="text/javascript" src="myassets/js/jqueryui-1.9.2.min.js"></script> 							<!-- Load jQueryUI -->
+<script type="text/javascript" src="myassets/js/bootstrap.min.js"></script> 								<!-- Load Bootstrap -->
+<script src="myassets/js/scripts.js"></script>
+<script>
+$(document).ready(function(){
+  connect();
+  if(localStorage.Userno && localStorage.Role == 'Lendee'){
+    location.href="Dashboard.html";
+  }
+});
+</script>
+    </body>
+</html>

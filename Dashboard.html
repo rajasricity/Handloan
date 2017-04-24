@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Handloan : Business Application</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="description" content="Handloan Business Application">
+    <meta name="author" content="KaijuThemes">
+
+    <!--[if lt IE 10]>
+        <script type="text/javascript" src="myassets/js/media.match.min.js"></script>
+        <script type="text/javascript" src="myassets/js/placeholder.min.js"></script>
+    <![endif]-->
+
+    <link type="text/css" href="myassets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">        <!-- Font Awesome -->
+    <link type="text/css" href="myassets/css/styles.css" rel="stylesheet">                                     <!-- Core CSS with all styles -->
+<!--    <link rel="stylesheet" type="text/css" href="myassets/css/dataTables.bootstrap.css">-->
+    <link rel="stylesheet" type="text/css" href="myassets/css/dataTables.fontAwesome.css">
+    <link rel="stylesheet" type="text/css" href="myassets/css/animate.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
+    <!--[if lt IE 9]>
+        <link type="text/css" href="myassets/css/ie8.css" rel="stylesheet">
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+        <script type="text/javascript" src="myassets/plugins/charts-flot/excanvas.min.js"></script>
+        <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    </head>
+
+    <body class="infobar-offcanvas">
+
+        <div id="headerbar"></div>
+        <header id="topnav" class="navbar navbar-midnightblue navbar-fixed-top clearfix" role="banner">
+	<span id="trigger-sidebar" class="toolbar-trigger toolbar-icon-bg">
+		<a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar"><span class="icon-bg"><i class="fa fa-fw fa-bars"></i></span></a>
+	</span>
+    <a class="navbar-brand" href="Dashboard.html">HANDLOAN</a>
+	<ul class="nav navbar-nav toolbar pull-right">
+		<li class="dropdown toolbar-icon-bg">
+			<a href="#" class="dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-gear"></i></span></a>
+			<ul class="dropdown-menu userinfo arrow">
+				<li><a href="javascript:void;"><span class="pull-left">Profile</span> <i class="pull-right fa fa-user"></i></a></li>
+				<li><a href="javascript:void;" onclick="signout();"><span class="pull-left">Sign Out</span> <i class="pull-right fa fa-sign-out"></i></a></li>
+			</ul>
+		</li>
+	</ul>
+</header>
+
+        <div id="wrapper">
+            <div id="layout-static">
+                <div class="static-sidebar-wrapper sidebar-midnightblue">
+                    <div class="static-sidebar">
+                        <div class="sidebar">
+
+    <div class="widget stay-on-collapse" id="widget-welcomebox">
+        <div class="widget-body welcome-box tabular">
+            <div class="tabular-row">
+                <div class="tabular-cell welcome-avatar">
+                    <a href="#"><img src="myassets/img/avatar.png" class="avatar"></a>
+                </div>
+                <div class="tabular-cell welcome-options">
+                    <span class="welcome-text">Welcome,</span>
+                    <a href="#" class="name" id="uname">HAND</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<div class="widget stay-on-collapse" id="widget-sidebar">
+<nav role="navigation" class="widget-body">
+	<ul class="acc-menu">
+		<li><a href="Dashboard.html"><i class="fa fa-home"></i><span>DASHBOARD</span></a></li>
+		<li><a href="javascript:;"><i class="fa fa-columns"></i><span>CREATE</span></a>
+			<ul class="acc-menu">
+				<li><a href="#">BORROWER</a></li>
+                <li><a href="#">LOAN</a></li>
+			</ul>
+		</li>
+		<li><a href="javascript:;"><i class="fa fa-files-o"></i><span>VIEW</span></a>
+			<ul class="acc-menu">
+				<li><a href="#">BORROWER</a></li>
+                <li><a href="#">LOANS</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+    </div>
+</div>
+                    </div>
+                </div>
+                <div class="static-content-wrapper" id="bgnew">
+                    <div class="static-content">
+                        <div class="page-content">
+                            <div class="container-fluid" style="margin-top:13px;">
+	<div class="row" id="mainrow">
+			<div class="col-xs-6 col-sm-2 animated zoomIn" style="height:50%;">
+				<a href="javascript:void;" class="shortcut-tile tile-magenta" style="height:84%;">
+					<div class="tile-body" style="height:100%;">
+						<div class="pull-left"><i class="fa fa-plus"></i></div>
+					</div>
+					<div class="tile-footer">
+						CREATE
+					</div>
+				</a>
+			</div>
+			<div class="col-xs-6 col-sm-2 animated zoomIn" style="height:50%">
+				<a href="javascript:void;" class="shortcut-tile tile-green" style="height:84%;">
+					<div class="tile-body" style="height:100%;">
+						<div class="pull-left"><i class="fa fa-eye"></i></div>
+					</div>
+					<div class="tile-footer">
+						VIEW
+					</div>
+				</a>
+			</div>
+			<div class="col-xs-6 col-sm-2 animated zoomIn" style="height:50%;">
+				<a href="javascript:void;" class="shortcut-tile tile-primary" style="height:84%;">
+					<div class="tile-body" style="height:100%;">
+						<div class="pull-left"><i class="fa fa-users"></i></div>
+					</div>
+					<div class="tile-footer">
+						BORROWERS
+					</div>
+				</a>
+			</div>
+			<div class="col-xs-6 col-sm-2 animated zoomIn" style="height:50%;">
+				<a href="javascript:void;" class="shortcut-tile tile-brown" style="height:84%;">
+					<div class="tile-body" style="height:100%;">
+						<div class="pull-left"><i class="fa fa-inr"></i></div>
+					</div>
+					<div class="tile-footer">
+						LOANS
+					</div>
+				</a>
+			</div>
+
+		</div>
+
+                            </div> <!-- .container-fluid -->
+                        </div> <!-- #page-content -->
+                    </div>
+                    <footer role="contentinfo">
+    <div class="clearfix">
+        <ul class="list-unstyled list-inline pull-left">
+            <li><h6 style="margin: 0;"> &copy; 2017 HANDLOAN</h6></li>
+        </ul>
+        <button class="pull-right btn btn-link btn-xs hidden-print" id="back-to-top"><i class="fa fa-arrow-up"></i></button>
+    </div>
+</footer>
+                </div>
+            </div>
+        </div>
+
+
+<script type="text/javascript" src="myassets/js/jquery-1.10.2.min.js"></script> 							<!-- Load jQuery -->
+<script type="text/javascript" src="myassets/js/jqueryui-1.9.2.min.js"></script> 							<!-- Load jQueryUI -->
+<script type="text/javascript" src="myassets/js/bootstrap.min.js"></script> 								<!-- Load Bootstrap -->
+<script type="text/javascript" src="myassets/js/enquire.min.js"></script> 									<!-- Enquire for Responsiveness -->
+<script type="text/javascript" src="myassets/js/jquery.nanoscroller.min.js"></script> <!-- nano scroller -->
+<script type="text/javascript" src="myassets/js/application.js"></script>
+<!-- <script src="myassets/js/jquery.dataTables.js"></script>
+<script src="myassets/js/demo-datatables.js"></script><script src="myassets/js/dataTables.bootstrap.js"></script> -->
+<script src="myassets/js/scripts.js"></script>
+<script>
+$(document).ready(function(){
+  $("#mainrow").css("height",$(window).height()-100);
+  connect();
+  getUname();
+  if(localStorage.Userno && localStorage.Role == 'Lendee'){
+  }else{
+    location.href="index.html";
+  }
+});
+</script>
+    </body>
+</html>

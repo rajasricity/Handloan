@@ -29,7 +29,7 @@ $("#login").on('submit', function(e){
         }
         }
       },
-      error:function(qXHR, exception){
+      error:function(jqXHR, exception){
       alert(jqXHR.status);
       }
    });

@@ -1,4 +1,4 @@
-var server = "http://localhost/handloan/";
+var server = "http://mukthasis.com/handloan/";
 $(document).ready(function(){
   localStorage.setItem('collapsed_menu', "true");
   $("#mnbar").load(server+"sidebar.php");

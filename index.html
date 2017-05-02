@@ -40,7 +40,14 @@
 									<span class="input-group-addon">
 										<i class="fa fa-phone"></i>
 									</span>
-<input type="number" min="0" class="form-control" name="mobile" placeholder="Mobile Number" data-parsley-minlength="6" required>
+<input type="number" min="0" class="form-control" name="mobile" placeholder="Mobile Number" required>
+								</div>
+                                                         <br>
+                                <div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-lock"></i>
+									</span>
+<input type="password" class="form-control" name="password" placeholder="Password" data-parsley-minlength="6" required>
 								</div>
 	                        </div>
 						</div>
@@ -66,7 +73,7 @@
 
 	</div>
 
-<div id="connection" class="modal fade" role="dialog">
+<div id="connection" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" style="padding-top:50%">
 
     <!-- Modal content-->
@@ -89,7 +96,7 @@
 <script>
 $(document).ready(function(){
   connect();
-  if(localStorage.Userno && localStorage.Role == 'Lendee'){
+  if(localStorage.Userno && localStorage.Password){
     location.href="Dashboard.html";
   }
 });

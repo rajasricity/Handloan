@@ -1,7 +1,7 @@
-var server = "http://mukthasis.com/handloan/";
+var server = "http://localhost/handloan/";
 $(document).ready(function(){
   localStorage.setItem('collapsed_menu', "true");
-
+  $("#mnbar").load(server+"sidebar.php");
 $("#login").on('submit', function(e){
    e.preventDefault();
    var fdata = $("#login").serialize();
@@ -21,12 +21,10 @@ $("#login").on('submit', function(e){
         }else{
         $("#wmsg").hide();
         localStorage.setItem("Userno",str.Userno);
-        localStorage.setItem("Role",str.Role);
-        if(str.Role == 'Lendee'){
-        location.href="Dashboard.html";
-        }else{
-         location.href="Dashboard.html";
-        }
+        localStorage.setItem("Password",str.Password);
+        if(localStorage.Userno && localStorage.Password){
+    location.href="Dashboard.html";
+          }
         }
       },
       error:function(jqXHR, exception){

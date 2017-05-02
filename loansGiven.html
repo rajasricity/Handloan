@@ -34,13 +34,17 @@
 
     <body class="infobar-offcanvas">
 
-        <div id="headerbar"></div>
+      <div id="headerbar"></div>
         <header id="topnav" class="navbar navbar-midnightblue navbar-fixed-top clearfix" role="banner">
 	<span id="trigger-sidebar" class="toolbar-trigger toolbar-icon-bg">
 		<a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar"><span class="icon-bg"><i class="fa fa-fw fa-bars"></i></span></a>
 	</span>
     <a class="navbar-brand" href="Dashboard.html">HANDLOAN</a>
 	<ul class="nav navbar-nav toolbar pull-right">
+    <li class="dropdown toolbar-icon-bg">
+<a onclick="javascript:window.history.back();" class="dropdown-toggle" data-toggle='dropdown'>
+<span class="icon-bg"><i class="fa fa-fw fa-arrow-left"></i></span></a>
+    </li>
 		<li class="dropdown toolbar-icon-bg">
 			<a href="#" class="dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-gear"></i></span></a>
 			<ul class="dropdown-menu userinfo arrow">
@@ -76,30 +80,44 @@
                     <div class="static-content">
                         <div class="page-content">
                             <div class="container-fluid" style="margin-top:13px;">
-	<div class="row" id="mainrow">
-
-			<div class="col-xs-6 col-sm-2 animated zoomIn">
-				<a href="loans.html" class="shortcut-tile tile-magenta" style="height:84%;">
+	<div class="row">
+<div class="col-md-12">
+<div class="panel panel-primary animated zoomIn">
+    <div class="panel-heading">
+        <h2 class="panel-title"><i class="fa fa-plus"></i> LOAN 2 BORROWER</h2>
+    </div>
+    <div class="panel-body">
+<form id="addl2b">
+<input type="hidden" name="user" value="" id="user"/>
+<select name="loans" id="loans" class="form-control" onchange="updateInterest(this.value);"></select><br>
+<select name="borrower" id="borrower" class="form-control"></select><br>
+<input type="number" min="0" name="interest" id="interest" class="form-control"/><br>
+<input type="date" name="sdate" id="sdate" class="form-control"/><br>
+    </div>
+    <div class="panel-footer">
+<input type="submit" name="submit" value="ACCEPT LOAN" class="btn btn-primary btn-lg pull-right"/>
+<img src="myassets/img/loader.gif" width="32" height="32" alt="" class="pull-right" id="loader" style="display:none">
+    </div>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-2" id="smsg" style="display:none">
+<div class="alert alert-dismissable alert-success">
+<i class="fa fa-fw fa-check"></i>&nbsp; <strong>Successfully!</strong> Created.
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+</div>
+</div>
+<div class="col-xs-12 col-sm-2 animated zoomIn">
+				<a href="viewBorrowers.html" class="shortcut-tile tile-magenta" style="height:84%;">
 					<div class="tile-body" style="height:100%;">
-						<div class="pull-left"><i class="fa fa-inr"></i></div>
+						<div class="pull-left"><i class="fa fa-user"></i></div>
 					</div>
 					<div class="tile-footer">
-						LOANS
+						VIEW BORROWERS
 					</div>
 				</a>
 			</div>
-			<div class="col-xs-6 col-sm-2 animated zoomIn">
-				<a href="#" class="shortcut-tile tile-green" style="height:84%;">
-					<div class="tile-body" style="height:100%;">
-						<div class="pull-left"><i class="fa fa-money"></i></div>
-					</div>
-					<div class="tile-footer">
-						CHITS
-					</div>
-				</a>
-			</div>
-
-		</div>
+	</div>
 
                             </div> <!-- .container-fluid -->
                         </div> <!-- #page-content -->
@@ -149,7 +167,40 @@ $(document).ready(function(){
   }else{
     location.href="index.html";
   }
+  $("#loans").load(server+"loadingLoans.php?user="+localStorage.Userno);
+  $("#borrower").load(server+"loadingBorrowers.php?user="+localStorage.Userno);
+  $("#addl2b").on('submit', function(e){
+     e.preventDefault();
+    $("#user").val(localStorage.Userno);
+    var fdata = $("#addl2b").serialize();
+    $.ajax({
+       url:server+"addl2b.php",
+       data:fdata,
+       type:"post",
+       beforeSend: function(){
+         $("#loader").show();
+       },
+       success: function(str){
+         $("#loader").hide();
+         if(str == 'Success'){
+           $("#smsg").show();
+           $("#addl2b")[0].reset();
+         }
+       }
+    });
+  });
 });
+function updateInterest(lid){
+  var fdata = {"loanid":lid};
+  $.ajax({
+     url:server+"loadInterest.php",
+     data:fdata,
+     type:"post",
+     success: function(str){
+       $("#interest").val(str);
+     }
+  });
+}
 </script>
     </body>
 </html>

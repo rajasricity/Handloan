@@ -34,7 +34,7 @@
 
     <body class="infobar-offcanvas">
 
-        <div id="headerbar"></div>
+      <div id="headerbar"></div>
         <header id="topnav" class="navbar navbar-midnightblue navbar-fixed-top clearfix" role="banner">
 	<span id="trigger-sidebar" class="toolbar-trigger toolbar-icon-bg">
 		<a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar"><span class="icon-bg"><i class="fa fa-fw fa-bars"></i></span></a>
@@ -76,30 +76,53 @@
                     <div class="static-content">
                         <div class="page-content">
                             <div class="container-fluid" style="margin-top:13px;">
-	<div class="row" id="mainrow">
-
-			<div class="col-xs-6 col-sm-2 animated zoomIn">
+	<div class="row">
+<div class="col-md-12">
+<div class="panel panel-primary animated zoomIn">
+    <div class="panel-heading">
+        <h2 class="panel-title"><i class="fa fa-plus"></i> ADD LOAN</h2>
+    </div>
+    <div class="panel-body">
+<form id="addLoan">
+    <input type="hidden" name="user" value="" id="user"/>
+    <input type="text" name="lname" class="form-control" value="" placeholder="ADD LOAN NAME"/><br>
+    <input type="number" name="amount" class="form-control" value="" placeholder="ADD LOAN AMOUNT"/><br>
+    <input type="number" name="interest" class="form-control" value="" placeholder="ADD LOAN INTEREST"/>
+    </div>
+    <div class="panel-footer">
+<input type="submit" name="submit" value="ADD LOAN" class="btn btn-primary btn-lg pull-right"/>
+<img src="myassets/img/loader.gif" width="32" height="32" alt="" class="pull-right" id="loader" style="display:none">
+    </div>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-2" id="smsg" style="display:none">
+<div class="alert alert-dismissable alert-success">
+<i class="fa fa-fw fa-check"></i>&nbsp; <strong>Successfully!</strong> Created.
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+</div>
+</div>
+<div class="col-xs-6 col-sm-2 animated zoomIn">
 				<a href="loans.html" class="shortcut-tile tile-magenta" style="height:84%;">
 					<div class="tile-body" style="height:100%;">
 						<div class="pull-left"><i class="fa fa-inr"></i></div>
 					</div>
 					<div class="tile-footer">
-						LOANS
+						VIEW LOANS
 					</div>
 				</a>
-			</div>
-			<div class="col-xs-6 col-sm-2 animated zoomIn">
-				<a href="#" class="shortcut-tile tile-green" style="height:84%;">
+</div>
+<div class="col-xs-6 col-sm-2 animated zoomIn">
+				<a href="loans.html" class="shortcut-tile tile-magenta" style="height:84%;">
 					<div class="tile-body" style="height:100%;">
-						<div class="pull-left"><i class="fa fa-money"></i></div>
+						<div class="pull-left"><i class="fa fa-user"></i></div>
 					</div>
 					<div class="tile-footer">
-						CHITS
+						VIEW BORROWERS
 					</div>
 				</a>
 			</div>
-
-		</div>
+	</div>
 
                             </div> <!-- .container-fluid -->
                         </div> <!-- #page-content -->
@@ -149,6 +172,26 @@ $(document).ready(function(){
   }else{
     location.href="index.html";
   }
+  $("#addLoan").on('submit', function(e){
+     e.preventDefault();
+    $("#user").val(localStorage.Userno);
+    var fdata = $("#addLoan").serialize();
+    $.ajax({
+       url:server+"addLoan.php",
+       data:fdata,
+       type:"post",
+       beforeSend: function(){
+         $("#loader").show();
+       },
+       success: function(str){
+         $("#loader").hide();
+         if(str == 'Success'){
+           $("#smsg").show();
+           $("#addLoan")[0].reset();
+         }
+       }
+    });
+  });
 });
 </script>
     </body>

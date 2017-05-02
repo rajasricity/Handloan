@@ -34,13 +34,17 @@
 
     <body class="infobar-offcanvas">
 
-        <div id="headerbar"></div>
+       <div id="headerbar"></div>
         <header id="topnav" class="navbar navbar-midnightblue navbar-fixed-top clearfix" role="banner">
 	<span id="trigger-sidebar" class="toolbar-trigger toolbar-icon-bg">
 		<a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar"><span class="icon-bg"><i class="fa fa-fw fa-bars"></i></span></a>
 	</span>
     <a class="navbar-brand" href="Dashboard.html">HANDLOAN</a>
 	<ul class="nav navbar-nav toolbar pull-right">
+    <li class="dropdown toolbar-icon-bg">
+<a onclick="javascript:window.history.back();" class="dropdown-toggle" data-toggle='dropdown'>
+<span class="icon-bg"><i class="fa fa-fw fa-arrow-left"></i></span></a>
+    </li>
 		<li class="dropdown toolbar-icon-bg">
 			<a href="#" class="dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-gear"></i></span></a>
 			<ul class="dropdown-menu userinfo arrow">
@@ -76,31 +80,9 @@
                     <div class="static-content">
                         <div class="page-content">
                             <div class="container-fluid" style="margin-top:13px;">
-	<div class="row" id="mainrow">
-
-			<div class="col-xs-6 col-sm-2 animated zoomIn">
-				<a href="loans.html" class="shortcut-tile tile-magenta" style="height:84%;">
-					<div class="tile-body" style="height:100%;">
-						<div class="pull-left"><i class="fa fa-inr"></i></div>
-					</div>
-					<div class="tile-footer">
-						LOANS
-					</div>
-				</a>
-			</div>
-			<div class="col-xs-6 col-sm-2 animated zoomIn">
-				<a href="#" class="shortcut-tile tile-green" style="height:84%;">
-					<div class="tile-body" style="height:100%;">
-						<div class="pull-left"><i class="fa fa-money"></i></div>
-					</div>
-					<div class="tile-footer">
-						CHITS
-					</div>
-				</a>
-			</div>
-
-		</div>
-
+<div class="row">
+<div id="myloans"></div>
+</div>
                             </div> <!-- .container-fluid -->
                         </div> <!-- #page-content -->
                     </div>
@@ -137,19 +119,21 @@
 <script type="text/javascript" src="myassets/js/enquire.min.js"></script> 									<!-- Enquire for Responsiveness -->
 <script type="text/javascript" src="myassets/js/jquery.nanoscroller.min.js"></script> <!-- nano scroller -->
 <script type="text/javascript" src="myassets/js/application.js"></script>
-<!-- <script src="myassets/js/jquery.dataTables.js"></script>
-<script src="myassets/js/demo-datatables.js"></script><script src="myassets/js/dataTables.bootstrap.js"></script> -->
-<script src="myassets/js/scripts.js"></script>
+<script type="text/javascript" src="myassets/js/scripts.js"></script>
 <script>
 $(document).ready(function(){
   $("#mainrow").css("height",$(window).height()-100);
   connect();
   getUname();
+  $("#myloans").load(server+"loadBorrowers.php?user="+localStorage.Userno);
   if(localStorage.Userno && localStorage.Password){
   }else{
     location.href="index.html";
   }
 });
+function showLoan(loanid){
+$("#myloans").load(server+"loadLoan.php?user="+localStorage.Userno+"&loanid="+loanid);
+}
 </script>
     </body>
 </html>

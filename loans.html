@@ -35,16 +35,20 @@
     <body class="infobar-offcanvas">
 
         <div id="headerbar"></div>
-        <header id="topnav" class="navbar navbar-midnightblue navbar-fixed-top clearfix" role="banner">
+<header id="topnav" class="navbar navbar-midnightblue navbar-fixed-top clearfix" role="banner">
 	<span id="trigger-sidebar" class="toolbar-trigger toolbar-icon-bg">
 		<a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar"><span class="icon-bg"><i class="fa fa-fw fa-bars"></i></span></a>
 	</span>
     <a class="navbar-brand" href="Dashboard.html">HANDLOAN</a>
 	<ul class="nav navbar-nav toolbar pull-right">
+    <li class="dropdown toolbar-icon-bg">
+<a onclick="javascript:window.history.back();" class="dropdown-toggle" data-toggle='dropdown'>
+<span class="icon-bg"><i class="fa fa-fw fa-arrow-left"></i></span></a>
+    </li>
 		<li class="dropdown toolbar-icon-bg">
 			<a href="#" class="dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-gear"></i></span></a>
 			<ul class="dropdown-menu userinfo arrow">
-				<li><a href="javascript:void;" onclick="signout();"><span class="pull-left">Sign Out</span> <i class="pull-right fa fa-sign-out"></i></a></li>
+			<li><a href="javascript:void;" onclick="signout();"><span class="pull-left">Sign Out</span> <i class="pull-right fa fa-sign-out"></i></a></li>
 			</ul>
 		</li>
 	</ul>
@@ -79,9 +83,51 @@
 	<div class="row" id="mainrow">
 
 			<div class="col-xs-6 col-sm-2 animated zoomIn">
-				<a href="loans.html" class="shortcut-tile tile-magenta" style="height:84%;">
+				<a href="loansGiven.html" class="shortcut-tile tile-magenta" style="height:84%;">
+					<div class="tile-body" style="height:100%;">
+						<div class="pull-left"><i class="fa fa-arrow-right"></i></div>
+					</div>
+					<div class="tile-footer">
+						LOANS GIVEN
+					</div>
+				</a>
+			</div>
+			<div class="col-xs-6 col-sm-2 animated zoomIn">
+				<a href="#" class="shortcut-tile tile-green" style="height:84%;">
+					<div class="tile-body" style="height:100%;">
+						<div class="pull-left"><i class="fa fa-arrow-left"></i></div>
+					</div>
+					<div class="tile-footer">
+						LOANS TAKEN
+					</div>
+				</a>
+			</div>
+
+            <div class="col-xs-6 col-sm-2 animated zoomIn">
+				<a href="addLoan.html" class="shortcut-tile tile-brown" style="height:84%;">
 					<div class="tile-body" style="height:100%;">
 						<div class="pull-left"><i class="fa fa-inr"></i></div>
+					</div>
+					<div class="tile-footer">
+						ADD LOAN
+					</div>
+				</a>
+			</div>
+			<div class="col-xs-6 col-sm-2 animated zoomIn">
+				<a href="addBorrower.html" class="shortcut-tile tile-primary" style="height:84%;">
+					<div class="tile-body" style="height:100%;">
+						<div class="pull-left"><i class="fa fa-user"></i></div>
+					</div>
+					<div class="tile-footer">
+						ADD BORROWER
+					</div>
+				</a>
+			</div>
+
+            <div class="col-xs-6 col-sm-2 animated zoomIn">
+				<a href="ViewLoans.html" class="shortcut-tile tile-orange" style="height:84%;">
+					<div class="tile-body" style="height:100%;">
+						<div class="pull-left"><i class="fa fa-money"></i></div>
 					</div>
 					<div class="tile-footer">
 						LOANS
@@ -89,12 +135,12 @@
 				</a>
 			</div>
 			<div class="col-xs-6 col-sm-2 animated zoomIn">
-				<a href="#" class="shortcut-tile tile-green" style="height:84%;">
+				<a href="Borrowers.html" class="shortcut-tile tile-danger" style="height:84%;">
 					<div class="tile-body" style="height:100%;">
-						<div class="pull-left"><i class="fa fa-money"></i></div>
+						<div class="pull-left"><i class="fa fa-users"></i></div>
 					</div>
 					<div class="tile-footer">
-						CHITS
+						BORROWERS
 					</div>
 				</a>
 			</div>
